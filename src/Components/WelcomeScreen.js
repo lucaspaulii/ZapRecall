@@ -31,7 +31,7 @@ const WelcomeContainer = styled.div`
         margin-bottom: 20px;
     }
     h1 {
-        font-size: 36px;
+        font-size: 46px;
         color: #ffffff;
         font-family: 'Righteous', cursive;
         margin-bottom: 30px;
