@@ -45,5 +45,7 @@ const WelcomeContainer = styled.div`
         background-color: #FFFFFF;
         border-radius: 5px;
         font-size: 18px;
+        box-shadow: 0px 14px 26px -9px rgba(0,0,0,0.5);
+        cursor: pointer;
     }
 `;
