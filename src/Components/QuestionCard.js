@@ -1,8 +1,6 @@
-import styled from "styled-components";
 import { useState } from "react";
 import Card from "./Card";
 import OpenedCard from "./OpenedCard";
-import FlippedCard from "./FlippedCard";
 
 export default function QuestionCard({
   questionNum,
@@ -37,22 +35,20 @@ export default function QuestionCard({
       <Card
         questionNum={questionNum}
         displayQuestion={displayQuestion}
-        userAnswers = {userAnswers}
+        userAnswers={userAnswers}
         isAnyClicked={isAnyClicked}
       />
     );
   } else {
-    if (!isFlipped) {
-      return (
-        <OpenedCard
-          question={question}
-          turnQuestion={turnQuestion}
-          currentClicked={currentClicked}
-          questionNum={questionNum}
-        />
-      );
-    } else {
-      return <FlippedCard correctAnswer={correctAnswer} />;
-    }
+    return (
+      <OpenedCard
+        question={question}
+        turnQuestion={turnQuestion}
+        currentClicked={currentClicked}
+        questionNum={questionNum}
+        isFlipped={isFlipped}
+        correctAnswer={correctAnswer}
+      />
+    );
   }
 }

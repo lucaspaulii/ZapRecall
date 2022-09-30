@@ -1,11 +1,11 @@
 import setaVirar from "../assets/img/seta_virar.png";
 import styled from "styled-components";
 
-export default function OpenedCard({ question, turnQuestion }) {
+export default function OpenedCard({ question, turnQuestion, correctAnswer, isFlipped }) {
   return (
     <OpenedCardContainer>
-      <p>{question}</p>
-      <img src={setaVirar} alt="seta play" onClick={turnQuestion} />
+      <p>{isFlipped ? correctAnswer : question}</p>
+      {isFlipped ? "" : <img src={setaVirar} alt="seta play" onClick={turnQuestion} />}
     </OpenedCardContainer>
   );
 }
