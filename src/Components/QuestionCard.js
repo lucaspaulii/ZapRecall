@@ -37,7 +37,7 @@ export default function QuestionCard({
       <Card
         questionNum={questionNum}
         displayQuestion={displayQuestion}
-        currentClicked={currentClicked}
+        userAnswers = {userAnswers}
         isAnyClicked={isAnyClicked}
       />
     );

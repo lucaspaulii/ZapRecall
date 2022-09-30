@@ -13,16 +13,15 @@ export default function QuestionsFooter({
   let userAnswer = "";
   function handleClick(color) {
     if (color === "green") {
-      userAnswer = "green";
+      userAnswer = "#2FBE34";
     }
     if (color === "yellow") {
-      userAnswer = "yellow";
+      userAnswer = "#FF922E";
     }
     if (color === "red") {
-      userAnswer = "red";
+      userAnswer = "#FF3030";
     }
     const answerObj = { question: currentClicked, answer: userAnswer };
-    console.log([...userAnswers, answerObj]);
     setUserAnswers([...userAnswers, answerObj]);
     const newIsAnyClicked = !isAnyClicked;
     setIsAnyClicked(newIsAnyClicked);
