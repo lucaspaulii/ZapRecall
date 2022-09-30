@@ -43,7 +43,8 @@ const OptionsContainer = styled.div`
         border-radius: 5px;
         border: none;
         color: #ffffff;
-        font-size: 12px;
+        font-size: 13px;
+        font-weight: 500;
     }
 `;
 

@@ -1,19 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import logo from '../assets/img/logo.png';
-import QuestionsFooter from './QuestionsFooter'
+import logo from "../assets/img/logo.png";
+import QuestionsFooter from "./QuestionsFooter";
+import QuestionCard from "./QuestionCard";
+import { useState } from "react";
 
-export default function QuestionsScreen() {
+export default function QuestionsScreen({ deck }) {
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [currentClicked, setCurrentClicked] = useState();
   return (
     <Container>
       <Header>
-        <img src={logo} alt='website logo' />
+        <img src={logo} alt="website logo" />
         <h1>ZapRecall</h1>
       </Header>
-      <div className="questions">
-
-      </div>
-      <QuestionsFooter />
+      {deck.map((a) => {
+        return (
+        <QuestionCard
+          questionNum={a.questionNum}
+          question={a.question}
+          correctAnswer={a.correctAnswer}
+          currentClicked={currentClicked}
+          setCurrentClicked={setCurrentClicked}
+        />);
+      })}
+      <QuestionsFooter
+        userAnswers={userAnswers}
+        setUserAnswers={setUserAnswers}
+        currentClicked={currentClicked}
+      />
     </Container>
   );
 }
@@ -21,23 +36,29 @@ export default function QuestionsScreen() {
 const Container = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: #FB6B6B;
+  background-color: #fb6b6b;
   position: relative;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 `;
 
 const Header = styled.div`
-display: flex;
-justify-content: space-between;
-padding: 42px 60px;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 42px 60px;
+  align-items: center;
 
-img {
-  width: 60px;
-  height: auto;
-}
-h1 {
-  font-size: 46px;
-  color: #ffffff;
-  font-family: 'Righteous', cursive;
-}
-`
+  img {
+    width: 60px;
+    height: auto;
+  }
+  h1 {
+    font-size: 46px;
+    color: #ffffff;
+    font-family: "Righteous", cursive;
+    margin-left: 20px;
+  }
+`;

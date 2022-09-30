@@ -48,12 +48,6 @@
   padding: 10px;
 }
 
-.footer-concluidos > .container-botoes {
-  display: flex;
-  width: 80%;
-  justify-content: space-between;
-  margin: 20px;
-}
 
 /* Você vai precisar trocar a cor dos botões e alguns textos!
   VERDE = "#2FBE34"

@@ -17,7 +17,7 @@ export default function WelcomeScreen({isStarted, setIsStarted}) {
 }
 
 const WelcomeContainer = styled.div`
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: #FB6B6B;
     display: flex;
