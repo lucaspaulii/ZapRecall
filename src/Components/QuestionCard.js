@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import { useState } from "react";
-import Card from './Card';
-import OpenedCard from './OpenedCard';
+import Card from "./Card";
+import OpenedCard from "./OpenedCard";
 import FlippedCard from "./FlippedCard";
 
 export default function QuestionCard({
   questionNum,
   question,
   correctAnswer,
+  currentClicked,
   setCurrentClicked,
+  userAnswers,
 }) {
   const [isClicked, setIsClicked] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -20,25 +22,30 @@ export default function QuestionCard({
   }
   function turnQuestion() {
     const newIsFlipped = !isFlipped;
-    setIsFlipped(newIsFlipped)
+    setIsFlipped(newIsFlipped);
   }
+  let answeredQuestions = userAnswers.map((a) => a.question);
 
-
-  if (!isClicked) {
+  if (!isClicked || answeredQuestions.includes(questionNum)) {
     return (
-      <Card questionNum={questionNum} displayQuestion={displayQuestion} />
+      <Card
+        questionNum={questionNum}
+        displayQuestion={displayQuestion}
+        currentClicked={currentClicked}
+      />
     );
   } else {
     if (!isFlipped) {
       return (
-        <OpenedCard question={question} turnQuestion={turnQuestion} />
+        <OpenedCard
+          question={question}
+          turnQuestion={turnQuestion}
+          currentClicked={currentClicked}
+          questionNum={questionNum}
+        />
       );
     } else {
-        return (
-            <FlippedCard correctAnswer={correctAnswer}/>
-        )
+      return <FlippedCard correctAnswer={correctAnswer} />;
     }
   }
 }
-
-

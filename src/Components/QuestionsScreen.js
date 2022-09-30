@@ -22,12 +22,14 @@ export default function QuestionsScreen({ deck }) {
           correctAnswer={a.correctAnswer}
           currentClicked={currentClicked}
           setCurrentClicked={setCurrentClicked}
+          userAnswers = {userAnswers}
         />);
       })}
       <QuestionsFooter
         userAnswers={userAnswers}
         setUserAnswers={setUserAnswers}
         currentClicked={currentClicked}
+        deck={deck}
       />
     </Container>
   );
@@ -35,9 +37,10 @@ export default function QuestionsScreen({ deck }) {
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #fb6b6b;
   position: relative;
+  margin-bottom: 111px;
   top: 0;
   display: flex;
   flex-direction: column;
