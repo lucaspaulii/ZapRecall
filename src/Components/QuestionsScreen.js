@@ -8,6 +8,7 @@ import { useState } from "react";
 export default function QuestionsScreen({ deck }) {
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentClicked, setCurrentClicked] = useState();
+  const [isAnyClicked, setIsAnyClicked] = useState(false);
   return (
     <Container>
       <Header>
@@ -23,6 +24,8 @@ export default function QuestionsScreen({ deck }) {
           currentClicked={currentClicked}
           setCurrentClicked={setCurrentClicked}
           userAnswers = {userAnswers}
+          isAnyClicked = {isAnyClicked}
+          setIsAnyClicked = {setIsAnyClicked}
         />);
       })}
       <QuestionsFooter
@@ -30,6 +33,8 @@ export default function QuestionsScreen({ deck }) {
         setUserAnswers={setUserAnswers}
         currentClicked={currentClicked}
         deck={deck}
+        isAnyClicked = {isAnyClicked}
+        setIsAnyClicked = {setIsAnyClicked}
       />
     </Container>
   );

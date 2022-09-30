@@ -7,6 +7,8 @@ export default function QuestionsFooter({
   setUserAnswers,
   currentClicked,
   deck,
+  isAnyClicked,
+  setIsAnyClicked,
 }) {
   let userAnswer = "";
   function handleClick(color) {
@@ -20,24 +22,36 @@ export default function QuestionsFooter({
       userAnswer = "red";
     }
     const answerObj = { question: currentClicked, answer: userAnswer };
-    console.log([...userAnswers, answerObj])
+    console.log([...userAnswers, answerObj]);
     setUserAnswers([...userAnswers, answerObj]);
+    const newIsAnyClicked = !isAnyClicked;
+    setIsAnyClicked(newIsAnyClicked);
+  }
+
+  function disableButton() {
+    let answeredQuestions = userAnswers.map((a) => a.question);
+    if (answeredQuestions.includes(currentClicked) || !currentClicked) {
+      return true;
+    } else return false;
   }
   return (
     <Container>
       <OptionsContainer>
         <RedButton
           onClick={() => handleClick("red")}
+          disabled={disableButton()}
         >
           Não lembrei
         </RedButton>
         <YellowButton
           onClick={() => handleClick("yellow")}
+          disabled={disableButton()}
         >
           Quase não lembrei!
         </YellowButton>
         <GreenButton
           onClick={() => handleClick("green")}
+          disabled={disableButton()}
         >
           Zap!
         </GreenButton>
