@@ -1,4 +1,4 @@
-const deck = [
+const deck1 = [
     {
       questionNum: 1,
       question: "O que é JSX?",
@@ -48,4 +48,4 @@ const deck = [
     },
   ];
 
-  export default deck
+  export default deck1

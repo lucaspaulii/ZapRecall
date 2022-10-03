@@ -1,6 +1,6 @@
 import WelcomeScreen from './WelcomeScreen';
 import QuestionsScreen from './QuestionsScreen';
-import deck from './Deck'
+import deck1 from './Deck1'
 import { useState } from 'react';
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
   
   return (
     <>
-    {isStarted ? <QuestionsScreen deck={deck}/> : <WelcomeScreen isStartet = {isStarted} setIsStarted = {setIsStarted}/>}    
+    {isStarted ? <QuestionsScreen deck={deck1}/> : <WelcomeScreen isStartet = {isStarted} setIsStarted = {setIsStarted}/>}    
     </>
   );
 }

@@ -11,7 +11,7 @@ export default function WelcomeScreen({isStarted, setIsStarted}) {
         <WelcomeContainer>
             <img src={logo} alt="website logo" />
             <h1>ZapRecall</h1>
-            <button onClick={handleClick} data-identifier="start-btn">Iniciar Recall!</button>
+            <button onClick={handleClick}>Iniciar Recall!</button>
         </WelcomeContainer>
     )
 }
