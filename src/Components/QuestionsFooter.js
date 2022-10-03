@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import deck from "./Deck";
 
 export default function QuestionsFooter({
   userAnswers,
@@ -39,23 +38,26 @@ export default function QuestionsFooter({
         <RedButton
           onClick={() => handleClick("red")}
           disabled={disableButton()}
+          data-identifier="forgot-btn"
         >
           Não lembrei
         </RedButton>
         <YellowButton
           onClick={() => handleClick("yellow")}
           disabled={disableButton()}
+          data-identifier="almost-forgot-btn"
         >
           Quase não lembrei!
         </YellowButton>
         <GreenButton
           onClick={() => handleClick("green")}
           disabled={disableButton()}
+          data-identifier="zap-btn"
         >
           Zap!
         </GreenButton>
       </OptionsContainer>
-      <p>
+      <p data-identifier="flashcard-counter">
         {userAnswers.length}/{deck.length} CONCLUIDOS
       </p>
     </Container>

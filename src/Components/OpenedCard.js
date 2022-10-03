@@ -9,11 +9,20 @@ export default function OpenedCard({
 }) {
   return (
     <OpenedCardContainer>
-      <p>{isFlipped ? correctAnswer : question}</p>
+      {isFlipped ? (
+        <p data-identifier="flashcard-answer">{correctAnswer}</p>
+      ) : (
+        <p data-identifier="flashcard-question">{question}</p>
+      )}
       {isFlipped ? (
         ""
       ) : (
-        <img src={setaVirar} alt="seta play" onClick={turnQuestion} />
+        <img
+          src={setaVirar}
+          alt="seta play"
+          onClick={turnQuestion}
+          data-identifier="flashcard-turn-btn"
+        />
       )}
     </OpenedCardContainer>
   );

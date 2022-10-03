@@ -1,30 +1,67 @@
 import setaPlay from "../assets/img/seta_play.png";
 import iconeErro from "../assets/img/icone_erro.png";
-import iconeQuase from "../assets/img/icone_quase.png"
-import iconeCerto from "../assets/img/icone_certo.png"
+import iconeQuase from "../assets/img/icone_quase.png";
+import iconeCerto from "../assets/img/icone_certo.png";
 import styled from "styled-components";
-import { useState } from "react";
 
 export default function Card({ questionNum, displayQuestion, userAnswers }) {
-  let color = '#333333';
-  let textDecoration = 'none';
+  let color = "#333333";
+  let textDecoration = "none";
 
   function checkColor() {
     userAnswers.forEach((a) => {
       if (a.question === questionNum) {
         color = a.answer;
-        textDecoration = 'line-through'
+        textDecoration = "line-through";
       }
-  })};
-  checkColor()
+    });
+  }
+  checkColor();
 
   return (
-    <CardContainer color={color} textDecoration={textDecoration}>
-      <p>Pergunta {questionNum}</p>
-      {(color === '#FF3030') ? (<img src={iconeErro} alt="icone erro"  />) : ''}
-      {(color === '#FF922E') ? (<img src={iconeQuase} alt="icone quase"  />) : ''}
-      {(color === '#2FBE34') ? (<img src={iconeCerto} alt="iconeCerto"  />) : ''}
-      {(color === '#333333') ? (<img src={setaPlay} alt="seta play" onClick={displayQuestion} />) : ''}
+    <CardContainer
+      color={color}
+      textDecoration={textDecoration}
+      data-identifier="flashcard"
+    >
+      <p data-identifier="flashcard-index-item">Pergunta {questionNum}</p>
+      {color === "#FF3030" ? (
+        <img
+          src={iconeErro}
+          alt="icone erro"
+          data-identifier="flashcard-status"
+        />
+      ) : (
+        ""
+      )}
+      {color === "#FF922E" ? (
+        <img
+          src={iconeQuase}
+          alt="icone quase"
+          data-identifier="flashcard-status"
+        />
+      ) : (
+        ""
+      )}
+      {color === "#2FBE34" ? (
+        <img
+          src={iconeCerto}
+          alt="iconeCerto"
+          data-identifier="flashcard-status"
+        />
+      ) : (
+        ""
+      )}
+      {color === "#333333" ? (
+        <img
+          src={setaPlay}
+          alt="seta play"
+          onClick={displayQuestion}
+          data-identifier="flashcard-show-btn"
+        />
+      ) : (
+        ""
+      )}
     </CardContainer>
   );
 }
