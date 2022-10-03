@@ -42,3 +42,6 @@ table {
 	border-spacing: 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900;1000&family=Righteous&display=swap');
+body {
+	background-color: #fb6b6b;
+}

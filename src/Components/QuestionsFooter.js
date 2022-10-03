@@ -51,7 +51,7 @@ export default function QuestionsFooter({
           disabled={disableButton()}
           data-identifier="almost-forgot-btn"
         >
-          Quase não lembrei!
+          Quase lembrei!
         </YellowButton>
         <GreenButton
           onClick={() => handleClick("green")}
