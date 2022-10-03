@@ -11,9 +11,11 @@ export default function QuestionCard({
   userAnswers,
   isAnyClicked,
   setIsAnyClicked,
+  isFlipped,
+  setIsFlipped
 }) {
   const [isClicked, setIsClicked] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(false);
+  
 
   function displayQuestion() {
     if (isAnyClicked === false) {
@@ -36,7 +38,6 @@ export default function QuestionCard({
         questionNum={questionNum}
         displayQuestion={displayQuestion}
         userAnswers={userAnswers}
-        isAnyClicked={isAnyClicked}
       />
     );
   } else {
@@ -44,8 +45,6 @@ export default function QuestionCard({
       <OpenedCard
         question={question}
         turnQuestion={turnQuestion}
-        currentClicked={currentClicked}
-        questionNum={questionNum}
         isFlipped={isFlipped}
         correctAnswer={correctAnswer}
       />

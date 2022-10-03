@@ -9,6 +9,7 @@ export default function QuestionsScreen({ deck }) {
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentClicked, setCurrentClicked] = useState();
   const [isAnyClicked, setIsAnyClicked] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
   return (
     <Container>
       <Header>
@@ -26,6 +27,8 @@ export default function QuestionsScreen({ deck }) {
           userAnswers = {userAnswers}
           isAnyClicked = {isAnyClicked}
           setIsAnyClicked = {setIsAnyClicked}
+          isFlipped = {isFlipped}
+          setIsFlipped = {setIsFlipped}
         />);
       })}
       <QuestionsFooter
@@ -35,6 +38,8 @@ export default function QuestionsScreen({ deck }) {
         deck={deck}
         isAnyClicked = {isAnyClicked}
         setIsAnyClicked = {setIsAnyClicked}
+        isFlipped = {isFlipped}
+        setIsFlipped = {setIsFlipped}
       />
     </Container>
   );

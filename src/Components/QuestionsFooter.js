@@ -8,6 +8,8 @@ export default function QuestionsFooter({
   deck,
   isAnyClicked,
   setIsAnyClicked,
+  isFlipped,
+  setIsFlipped
 }) {
   let userAnswer = "";
   function handleClick(color) {
@@ -24,13 +26,15 @@ export default function QuestionsFooter({
     setUserAnswers([...userAnswers, answerObj]);
     const newIsAnyClicked = !isAnyClicked;
     setIsAnyClicked(newIsAnyClicked);
+    setIsFlipped(false)
   }
 
   function disableButton() {
     let answeredQuestions = userAnswers.map((a) => a.question);
     if (answeredQuestions.includes(currentClicked) || !currentClicked) {
       return true;
-    } else return false;
+    } else if (!isFlipped) {return true}
+     else return false;
   }
   return (
     <Container>
